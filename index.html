@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-image: url('background.jpg'); /* Replace with your image path */
+      background-image: url('background.jpg'); /* Replace with the image path */
       background-size: cover;
       background-position: center;
       display: flex;
@@ -24,8 +25,6 @@
       text-align: center;
       max-width: 400px;
       width: 90%;
-      overflow-y: auto;
-      max-height: 90vh;
     }
     input, select, textarea, button {
       margin: 10px 0;
@@ -49,28 +48,29 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container" id="home">
     <h1>Bad Boyfriend Portal</h1>
     <p>Did your boyfriend trouble you again?<br>
-    Or is he not taking care of you?<br>
-    Did he do something?<br>
-    Submit your entries now!</p>
+      Or is he not taking care of you?<br>
+      Did he do something?<br>
+      Submit your entries now!</p>
     <button class="btn-green" onclick="showLogin()">Login</button>
   </div>
 
   <div class="container hidden" id="login">
     <h1>Shitty Boyfriend Portal</h1>
-    <input type="text" id="email" placeholder="Email" aria-label="Email">
-    <input type="password" id="password" placeholder="Password" aria-label="Password">
+    <input type="text" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
     <button class="btn-green" onclick="validateLogin()">Login</button>
   </div>
 
   <div class="container hidden" id="journal">
     <h2>Submit Your Entry</h2>
-    <input type="text" id="title" placeholder="Title" aria-label="Entry title">
-    <textarea id="problem" placeholder="What's bothering you?" rows="4" aria-label="Problem description"></textarea>
-    <select id="mood" aria-label="Mood">
+    <input type="text" id="title" placeholder="Title">
+    <textarea id="problem" placeholder="What's bothering you?" rows="4"></textarea>
+    <select id="mood">
       <option value="">What's your mood?</option>
       <option value="Happy">Happy</option>
       <option value="Sad">Sad</option>
@@ -78,20 +78,15 @@
       <option value="Tired">Tired</option>
       <option value="Lonely">Lonely</option>
     </select>
-    <select id="intensity" aria-label="Intensity">
+    <select id="intensity">
       <option value="">How bad is it? (1-10)</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <form id="form" action="https://formspree.io/f/xwkglbne" method="POST">
+
+    <form id="form" action="https://formspree.io/f/xrbqdeld" method="POST">
       <input type="hidden" name="title" id="formTitle">
       <input type="hidden" name="problem" id="formProblem">
       <input type="hidden" name="mood" id="formMood">
@@ -104,8 +99,8 @@
   <div class="container hidden" id="confirmation">
     <h2>Thank you, cupcake 🎀</h2>
     <p>Your entry has been successfully sent to your shitty boyfriend.<br>
-    And that dumbass will get back to you as soon as possible.<br>
-    <i>(he'll think about it)</i></p>
+      And that dumbass will get back to you as soon as possible.<br>
+      <i>(he'll think about it)</i></p>
     <button class="btn-green" onclick="showJournal()">Submit Another Entry</button>
     <button class="btn-green" onclick="showHome()">Home</button>
   </div>
@@ -145,13 +140,11 @@
       document.getElementById("formProblem").value = document.getElementById("problem").value;
       document.getElementById("formMood").value = document.getElementById("mood").value;
       document.getElementById("formIntensity").value = document.getElementById("intensity").value;
-      
-      setTimeout(() => {
-        document.getElementById("form").submit();
-        document.getElementById("journal").classList.add("hidden");
-        document.getElementById("confirmation").classList.remove("hidden");
-      }, 100);
+      document.getElementById("form").submit();
+      document.getElementById("journal").classList.add("hidden");
+      document.getElementById("confirmation").classList.remove("hidden");
     }
   </script>
 </body>
+
 </html>
